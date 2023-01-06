@@ -1,3 +1,4 @@
+cd /home/ubunt/
 sudo apt-get update -y
 mkdir test0001
 cd test0001

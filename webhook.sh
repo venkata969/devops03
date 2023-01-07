@@ -1,5 +1,16 @@
-cd /home/ubunt/
-sudo apt-get update -y
-mkdir test0001
-cd test0001
-touch t1 t2
+require 'webrick'
+
+server = WEBrick::HTTPServer.new(:Port => ARGV.first)
+server.mount_proc '/' do |req, res|
+  puts req.body
+end
+
+trap 'INT' do
+  server.shutdown
+end
+server.start
+
+
+
+#ruby webhook.rb 8000
+#http://my.host:8000/
